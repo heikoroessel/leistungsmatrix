@@ -110,7 +110,7 @@ export default function KeyEntry({ onSessionStart }) {
             className="btn btn-primary btn-lg"
             style={{ width: '100%', justifyContent: 'center' }}
             onClick={handleSubmit}
-            disabled={loading || !key.trim()}
+            disabled={loading}
           >
             {loading ? <><span className="spinner" style={{ borderTopColor: '#fff', borderColor: 'rgba(255,255,255,0.3)' }} /> Laden …</> : 'Starten'}
           </button>
