@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import { initDB } from './db/index.js';
+import { seedDev } from './db/seed.js';
 import adminRoutes from './routes/admin.js';
 import sessionRoutes from './routes/session.js';
 import aiRoutes from './routes/ai.js';
@@ -27,6 +28,7 @@ app.get('/health', (_, res) => res.json({ ok: true }));
 
 async function start() {
   await initDB();
+  await seedDev();
   app.listen(PORT, () => console.log(`✓ Leistungsmatrix Backend läuft auf Port ${PORT}`));
 }
 

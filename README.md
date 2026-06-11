@@ -22,17 +22,10 @@ just dev      # Datenbank + Backend (Port 3001) + Frontend (Port 5173)
 Danach http://localhost:5173 öffnen. In `backend/.env` noch `ADMIN_PASSWORD` und
 `ANTHROPIC_API_KEY` setzen — alle Variablen sind in `backend/.env.example` dokumentiert.
 
-Zum Einloggen wird ein Teilnehmer-Key benötigt. Erstes Projekt anlegen:
-
-```bash
-curl -X POST http://localhost:3001/api/admin/projects \
-  -H 'Content-Type: application/json' \
-  -H 'x-admin-password: <ADMIN_PASSWORD aus backend/.env>' \
-  -d '{"name":"Mein Projekt"}'
-```
-
-Die Antwort enthält den `tn_key` (Teilnehmer) und `an_key` (Anleiter) — den
-`tn_key` auf der Startseite eingeben.
+Zum Einloggen wird ein Teilnehmer-Key benötigt. Mit `SEED_DEV=true` (Default in
+`.env.example`) legt das Backend beim Start automatisch das Dev-Projekt mit dem
+Teilnehmer-Key `TN-DEVKEY` an — diesen auf der Startseite eingeben. Weitere
+Projekte lassen sich im Admin-Bereich (`/admin`) anlegen.
 
 ## Befehle
 
